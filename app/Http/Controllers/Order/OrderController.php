@@ -28,9 +28,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-
-
-        return response()->json(Order::get());
+ 
         if (auth()->user()->role === 'supplier' or auth()->user()->role !== 'supplier') {
             // dd("asd");
             $orders = Order::all()->count();
