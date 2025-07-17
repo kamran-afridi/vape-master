@@ -36,7 +36,7 @@ class OrderController extends Controller
             $orders = Order::where('user_id', auth()->id())->count();
         }
 
-        return view('orders.index', [
+        return view('orders.index', [ 
             'orders' => $orders,
         ]);
     }
