@@ -28,7 +28,9 @@ class OrderController extends Controller
 {
     public function index()
     {
- 
+
+
+        return response()->json(Order::get());
         if (auth()->user()->role === 'supplier' or auth()->user()->role !== 'supplier') {
             // dd("asd");
             $orders = Order::all()->count();
@@ -36,7 +38,7 @@ class OrderController extends Controller
             $orders = Order::where('user_id', auth()->id())->count();
         }
 
-        return view('orders.index', [  
+        return view('orders.index', [
             'orders' => $orders,
         ]);
     }
