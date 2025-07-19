@@ -32,7 +32,7 @@ class SearchOrders extends Component
         if (!is_null($this->customer_id) || Session::get('customer_id')) {
             // Retrieve the order based on the customer ID
             try {
-                $addItemToCart = Cart::add($productId, $name, 1, $salePrice, ['sku' => $sku]);
+                $addItemToCart = Cart::add($productId, $name['name'], 1, $salePrice, ['sku' => $sku]);
                 $this->dispatch('addedTocart');
                 session()->flash('success', value: 'Product has been added to cart!');
                 // if ($addItemToCart) {
