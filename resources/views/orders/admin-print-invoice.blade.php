@@ -35,7 +35,7 @@
                                 <div class="col-lg-6 col-sm-6">
                                     <div class="logo">
                                         {{-- <h1>{{ Str::title(auth()->user()->name) }}</h1> --}}
-                                        <img src="{{ asset('assets/img/logo.PNG') }}" style="width: 125px; height:125px"
+                                        <img src="{{ asset('assets/img/Morris_Hype_Mart_Logo_WhiteBG.PNG') }}" style="width: 125px; height:125px"
                                             alt="Panther Force">
                                     </div>
                                 </div>
@@ -66,7 +66,7 @@
                                                     Bank Title:&nbsp;
                                                 </h4>
                                                 <p class="invo-addr-1">
-                                                    PANTHER FORCE RETAIL LIMITED
+                                                    Morris Hype Mart LTD
                                                 </p>
                                             </div>
                                             <div class="invoice-number d-flex justify-content-end">
@@ -74,13 +74,13 @@
                                                     Sort Code:&nbsp;
                                                 </h4>
                                                 <p class="invo-addr-1">
-                                                    30-99-50
+                                                    30-54-66
                                                 </p>&nbsp; &nbsp;
                                                 <h4 class="inv-title-1">
                                                     Account No:&nbsp;
                                                 </h4>
                                                 <p class="invo-addr-1">
-                                                    50539663
+                                                    37432060
                                                 </p>
                                             </div>
                                             {{-- <div class="invoice-number d-flex mt-0">
