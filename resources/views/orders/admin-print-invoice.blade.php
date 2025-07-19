@@ -72,7 +72,7 @@
                                             <div class="invoice-number d-flex justify-content-end">
                                                 <h4 class="inv-title-1">
                                                     Sort Code:&nbsp;
-                                                </h4>
+                                                </h4> 
                                                 <p class="invo-addr-1">
                                                     30-54-66
                                                 </p>&nbsp; &nbsp;
