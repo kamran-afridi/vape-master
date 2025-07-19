@@ -83,7 +83,7 @@
                 @endphp
                 @forelse ($products as $product)
                     <div class="card searchproductcard m-2 p-0 cursor-pointer"
-                        wire:click="addCartItem({{ $product->id }}, '{{ json_encode($product->name) }}', {{ Session::get('customer_id') === \App\Enums\CustomerType::Normal ? $product->sale_price : $product->whole_sale_price }}, '{{ $product->sku }}')"
+                        wire:click="addCartItem({{ $product->id }}, '{{ addslashes($product->name) }}', {{ Session::get('customer_id') === \App\Enums\CustomerType::Normal ? $product->sale_price : $product->whole_sale_price }}, '{{ $product->sku }}')"
                         style="cursor: pointer;">
                         <div class="card-body">
                             <p class="text-center">
