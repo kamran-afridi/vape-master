@@ -27,7 +27,7 @@
                                 <div class="col-lg-6 col-sm-6">
                                     <div class="logo">
                                         {{-- <h1>{{ Str::title(auth()->user()->name) }}</h1> --}}
-                                        <img src="https://inventory.qtechltd.com/assets/img/logo.PNG"
+                                        <img src="https://inventory.qtechltd.com/assets/img/vapelogo.png"
                                             style="width: 125px; height:125px" alt="Panther Force">
                                     </div>
                                 </div>

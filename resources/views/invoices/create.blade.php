@@ -28,7 +28,7 @@
                             <div class="row">
                                 <div class="col-lg-6 col-sm-6">
                                     <div class="logo">
-                                        <img src="{{ asset('assets/img/logo.PNG') }}" style="width: 125px; height:125px"
+                                        <img src="{{ asset('assets/img/vapelogo.png') }}" style="width: 125px; height:125px"
                                             alt="Panther Force">
                                     </div>
                                 </div>

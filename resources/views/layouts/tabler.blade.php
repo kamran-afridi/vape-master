@@ -68,7 +68,7 @@
                     <a href="{{ url('/') }}">
                         {{-- <img src="{{ asset('assets/img/logo.PNG') }}" alt="Panther Force" width="60"
                             height="auto"> --}}
-                        <img src="https://pantherforce.co.uk/cdn/shop/files/logo-pf_529ab6b6-8198-41c4-8071-3d610222d418_210x@2x.png?v=1720617728"
+                        <img src="https://vape-master.pantherforce.org/assets/img/vapelogo.png"
                             alt="Panther Force" width="100" height="auto">
                     </a>
                 </h1>
