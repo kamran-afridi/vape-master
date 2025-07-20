@@ -11,7 +11,7 @@
                 <x-action.create route="{{ route('products.create') }}" />
             @endif
         </div>
-    </div>
+    </div> 
 
     <div class="card-body border-bottom py-3">
         <div class="d-flex">
