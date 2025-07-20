@@ -81,6 +81,7 @@ class CreateNewOrder extends Component
                 })->orderBy('name', 'ASC')
                 ->get(['id', 'name']);
         } else {
+            dd(auth()->user()->wearhouse_id);
             $customers = Customer::where('user_id', auth()->id())->orderBy('name', 'ASC')->get(['id', 'name']);
             // $customers = Customer::get(['id', 'name']);
         }
