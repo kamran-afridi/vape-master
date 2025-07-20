@@ -80,11 +80,7 @@ class CreateNewOrder extends Component
                     $query->where('wearhouse_id', 2);
                 })->orderBy('name', 'ASC')
                 ->get(['id', 'name']);
-        } elseif (auth()->user()->role == 'user') {
-            $customers = User::where('id', auth()->id())->orderBy('name', 'ASC')->get(['id', 'name']);
-        }
-        // For other roles, we can simply get all customers
-        else {
+        } else {
             $customers = Customer::where('user_id', auth()->id())->orderBy('name', 'ASC')->get(['id', 'name']);
             // $customers = Customer::get(['id', 'name']);
         }

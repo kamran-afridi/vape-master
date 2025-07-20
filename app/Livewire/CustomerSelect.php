@@ -31,7 +31,7 @@ class CustomerSelect extends Component
     }
 
     public function render()
-    {
+    { 
         return view('livewire.customer-select', [
             'customer_data' => $this->customer_data,
         ]);

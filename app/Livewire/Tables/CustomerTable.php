@@ -65,7 +65,7 @@ class CustomerTable extends Component
             ]);
         } else {
             return view('livewire.tables.customer-table', [
-                'customers' => Customer::with('orders', 'quotations')
+                'customers' => Customer::with('orders', 'quotations', 'user')
                     ->where('user_id', auth()->user()->id)
                     ->search($this->search)
                     ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
