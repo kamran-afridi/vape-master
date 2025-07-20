@@ -80,11 +80,11 @@ class CreateNewOrder extends Component
                     $query->where('wearhouse_id', 2);
                 })->orderBy('name', 'ASC')
                 ->get(['id', 'name']);
-        } else {
-            dd(auth()->user()->wearhouse_id);
+        }  
+        else {
             $customers = Customer::where('user_id', auth()->id())->orderBy('name', 'ASC')->get(['id', 'name']);
             // $customers = Customer::get(['id', 'name']);
-        }
+         }
 
         $carts = Cart::content();
         // dd($carts);
