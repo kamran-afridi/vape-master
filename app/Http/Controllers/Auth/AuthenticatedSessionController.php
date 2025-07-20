@@ -54,12 +54,7 @@ class AuthenticatedSessionController extends Controller
                 ]);
             // Log::channel('stderr')->info('User already logout today!');
         } else {
-            $UsersLog = UsersLog::create([
-                'date' => Carbon::now()->format('Y-m-d'),
-                'time' => Carbon::now()->format('H:i:s'),
-                'status' => 'LOGOUT',
-                'user_id' => auth()->id(),
-            ]);
+             
         }
 
         Auth::guard('web')->logout();

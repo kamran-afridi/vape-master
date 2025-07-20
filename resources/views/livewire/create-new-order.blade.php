@@ -92,10 +92,15 @@
                                             {{ __('Customer') }}
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <button type="button" class="btn btn-sm mb-1 btn-primary"
-                                            data-bs-toggle="modal" data-bs-target="#myModal">
-                                            Add customer
-                                        </button>
+
+                                        @if (auth()->user()->role === 'superAdmin' || auth()->user()->role === 'admin')
+                                            <button type="button" class="btn btn-sm mb-1 btn-primary"
+                                                data-bs-toggle="modal" data-bs-target="#myModal">
+                                                Add customer
+                                            </button>
+                                        @endif
+
+                                        {{-- Select customer --}}
 
                                         <!-- Include Livewire Component for Customer Select -->
                                         @livewire('customer-select', ['customers' => $allcustomers])

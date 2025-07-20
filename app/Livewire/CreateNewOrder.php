@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Customer;
 use App\Models\Product;
+use App\Models\user;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CreateNewOrder extends Component
@@ -80,7 +81,7 @@ class CreateNewOrder extends Component
                 })->orderBy('name', 'ASC')
                 ->get(['id', 'name']);
         } elseif (auth()->user()->role == 'user') {
-            $customers = Customer::where('user_id', auth()->id())->orderBy('name', 'ASC')->get(['id', 'name']);
+            $customers = User::where('id', auth()->id())->orderBy('name', 'ASC')->get(['id', 'name']);
         }
         // For other roles, we can simply get all customers
         else {
