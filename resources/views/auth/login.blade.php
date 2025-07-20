@@ -9,7 +9,7 @@
                     <img src="https://vape-master.pantherforce.org/assets/img/vapelogo.png" width="181" height="auto" alt="Panther Force">
                 </a>
             </div>
-
+ 
             <h2 class="h2 text-center mb-4">
                 Login to your account
             </h2>
