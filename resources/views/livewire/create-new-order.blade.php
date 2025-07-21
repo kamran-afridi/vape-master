@@ -194,36 +194,54 @@
                                                                             wire:model="cartId.{{ $item->rowId }}">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-5 col-sm-5 ml-0 mr-1">
-                                                                    <div class="input-group">
-                                                                        <input type="number" class="form-control"
-                                                                            name="price" required
-                                                                            wire:model="cartItemprice.{{ $item->rowId }}"
-                                                                            value="{{ old('price', $item->price) }}"
-                                                                            step="any">
+                                                                @if (auth()->user()->role === 'superAdmin' || auth()->user()->role === 'admin')
+                                                                    <div class="col-md-5 col-sm-5 ml-0 mr-1">
+                                                                        <div class="input-group">
+                                                                            <input type="number" class="form-control"
+                                                                                name="price" required
+                                                                                wire:model="cartItemprice.{{ $item->rowId }}"
+                                                                                value="{{ old('price', $item->price) }}"
+                                                                                step="any">
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-md-3 col-sm-3 ml-0">
-                                                                    <div class="input-group-append text-center">
-                                                                        <button
-                                                                            wire:click.prevent="EditQtyPrice('{{ $item->rowId }}')"
-                                                                            class="btn btn-icon btn-success border-none"
-                                                                            data-toggle="tooltip" data-placement="top"
-                                                                            title="" data-original-title="Sumbit">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                class="icon icon-tabler icon-tabler-check"
-                                                                                width="24" height="24"
-                                                                                viewBox="0 0 24 24" stroke-width="2"
-                                                                                stroke="currentColor" fill="none"
-                                                                                stroke-linecap="round"
-                                                                                stroke-linejoin="round">
-                                                                                <path stroke="none" d="M0 0h24v24H0z"
-                                                                                    fill="none" />
-                                                                                <path d="M5 12l5 5l10 -10" />
-                                                                            </svg>
-                                                                        </button>
+                                                                @else
+                                                                    <div class="col-md-5 col-sm-5 ml-0 mr-1">
+                                                                        <div class="input-group">
+                                                                            <input type="number" class="form-control"
+                                                                                name="price" required
+                                                                                wire:model="cartItemprice.{{ $item->rowId }}"
+                                                                                value="{{ old('price', $item->price) }}"
+                                                                                step="any" readonly>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
+                                                                @endif  
+                                                                @if (auth()->user()->role === 'superAdmin' || auth()->user()->role === 'admin')
+                                                                    <div class="col-md-3 col-sm-3 ml-0">
+                                                                        <div class="input-group-append text-center">
+                                                                            <button
+                                                                                wire:click.prevent="EditQtyPrice('{{ $item->rowId }}')"
+                                                                                class="btn btn-icon btn-success border-none"
+                                                                                data-toggle="tooltip"
+                                                                                data-placement="top" title=""
+                                                                                data-original-title="Sumbit">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                    class="icon icon-tabler icon-tabler-check"
+                                                                                    width="24" height="24"
+                                                                                    viewBox="0 0 24 24"
+                                                                                    stroke-width="2"
+                                                                                    stroke="currentColor"
+                                                                                    fill="none"
+                                                                                    stroke-linecap="round"
+                                                                                    stroke-linejoin="round">
+                                                                                    <path stroke="none"
+                                                                                        d="M0 0h24v24H0z"
+                                                                                        fill="none" />
+                                                                                    <path d="M5 12l5 5l10 -10" />
+                                                                                </svg>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                @endif
                                                             </div>
                                                         </form>
                                                     </td>
