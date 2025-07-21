@@ -37,33 +37,35 @@
                 {{ number_format($thisorderdetail->total, 2) }}
             </td>
         </form>
-    @endif  
-    <!-- Displaying the order detail without form for non-admin users -->
-    <form>
-        <td class="align-middle text-center">
-            {{ $thisorderdetail->quantity }}
-        </td>
-        <td class="align-middle text-center">
-            {{ number_format($thisorderdetail->unitcost, 2) }}
-        <td style="min-width: 170px;">
-            <div class="input-group">
-                @error('productquantity')
-                    <span class="text-danger" style="font-size: 12px; margin-left: 5px;">*{{ $message }}</span>
-                @enderror
-                <!-- Correct wire:model usage -->
-                <input type="number" class="form-control" wire:model="productquantity" required readonly>
-                <input type="hidden" class="form-control" wire:model="product_id" value="{{ $thisorderdetail->id }}">
-            </div>
-        </td>
-        <td style="min-width: 170px;">
-            <div class="input-group">
-                <input type="number" class="form-control" wire:model="productprice" step="any" readonly>
-                 
-            </div>
-        </td>
-        </td>
-        <td class="align-middle text-center">
-            {{ number_format($thisorderdetail->total, 2) }}
-        </td>
-    </form>
+    @else
+        <!-- Displaying the order detail without form for non-admin users -->
+        <form>
+            <td class="align-middle text-center">
+                {{ $thisorderdetail->quantity }}
+            </td>
+            <td class="align-middle text-center">
+                {{ number_format($thisorderdetail->unitcost, 2) }}
+            <td style="min-width: 170px;">
+                <div class="input-group">
+                    @error('productquantity')
+                        <span class="text-danger" style="font-size: 12px; margin-left: 5px;">*{{ $message }}</span>
+                    @enderror
+                    <!-- Correct wire:model usage -->
+                    <input type="number" class="form-control" wire:model="productquantity" required readonly>
+                    <input type="hidden" class="form-control" wire:model="product_id"
+                        value="{{ $thisorderdetail->id }}">
+                </div>
+            </td>
+            <td style="min-width: 170px;">
+                <div class="input-group">
+                    <input type="number" class="form-control" wire:model="productprice" step="any" readonly>
+
+                </div>
+            </td>
+            </td>
+            <td class="align-middle text-center">
+                {{ number_format($thisorderdetail->total, 2) }}
+            </td>
+        </form>
+    @endif
 </div>
