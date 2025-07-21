@@ -131,29 +131,28 @@
                             </form>
                         </div>
                     @endif
-                    <div class="col  text-end">
-                        <form action="{{ route('orders.update_payment_status', $order->uuid) }}" method="POST">
-                            @method('put')
-                            @csrf
-                            <!-- Hidden Input Field to Store Payment Type -->
-                            <input type="hidden" id="hidden_payment_type" name="hidden_payment_type"
-                                value="{{ $order->payment_type }}">
-                            <!-- Hidden Input Field to Store Payment Type -->
-                            <input type="hidden" id="hidden_notes" name="hidden_notes" value="">
-                            <button type="submit" class="btn btn-success"
-                                onclick="return confirm('Are you sure you want to change the payemnt type of this order?')">
-                                {{ __('Change Payment Status') }}
-                            </button>
-                        </form>
-                    </div>
+
+                    @if (auth()->user()->role == 'admin' || auth()->user()->role == 'superAdmin')
+                        <div class="col  text-end">
+                            <form action="{{ route('orders.update_payment_status', $order->uuid) }}" method="POST">
+                                @method('put')
+                                @csrf
+                                <!-- Hidden Input Field to Store Payment Type -->
+                                <input type="hidden" id="hidden_payment_type" name="hidden_payment_type"
+                                    value="{{ $order->payment_type }}">
+                                <!-- Hidden Input Field to Store Payment Type -->
+                                <input type="hidden" id="hidden_notes" name="hidden_notes" value="">
+                                <button type="submit" class="btn btn-success"
+                                    onclick="return confirm('Are you sure you want to change the payemnt type of this order?')">
+                                    {{ __('Change Payment Status') }}
+                                </button>
+                            </form>
+                        </div>
+                    @endif
                 </div>
-            </div>
-
-
+            </div>  
         </div>
-    </div>
-
-
+    </div> 
     <!-- Modal -->
     <div class="modal fade" id="addProduct" tabindex="-1" aria-labelledby="addProductLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
