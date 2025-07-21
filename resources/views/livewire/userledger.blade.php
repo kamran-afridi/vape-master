@@ -65,7 +65,9 @@
                             <option value="" selected disabled>Select Payment Method:</option>
                             <option value="allpayment">All</option>
                             <option value="Cash">Cash</option>
-                            <option value="Credit">Credit</option>
+                            @if (auth()->user()->role === 'superAdmin' || auth()->user()->role === 'admin')
+                                <option value="Credit">Credit</option>
+                            @endif
                             <option value="Bank">Bank</option>
                         </select>
                     </div>

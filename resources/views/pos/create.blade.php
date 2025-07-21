@@ -167,7 +167,9 @@
                                         <option selected="" disabled="">Select a payment:</option>
                                         <option value="Cash">Cash</option>
                                         <option value="Bank">Bank Transfer</option>
-                                        <option value="Credit">Credit</option>
+                                        @if (auth()->user()->role === 'superAdmin' || auth()->user()->role === 'admin')
+                                            <option value="Credit">Credit</option>
+                                        @endif
                                     </select>
 
                                     @error('payment_type')
@@ -192,7 +194,7 @@
                                         {{ $message }}
                                     </div>
                                 @enderror
-                                 
+
                             </div>
                             <div class="col-lg-12">
                                 <label for="note" class="form-label">

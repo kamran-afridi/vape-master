@@ -64,8 +64,10 @@
                         <select class="form-select form-control-solid m-1" wire:model.change="paymentMethod">
                             <option value="" selected disabled>Select Payment Method:</option>
                             <option value="allpayment">All</option>
-                            <option value="Cash">Cash</option>
-                            <option value="Credit">Credit</option>
+                            <option value="Cash">Cash</option> 
+                            @if (auth()->user()->role === 'superAdmin' || auth()->user()->role === 'admin')
+                                <option value="Credit">Credit</option>
+                            @endif
                             <option value="Bank">Bank</option>
                         </select>
                     </div>
@@ -302,7 +304,7 @@
                         No of Orders
                     </td>
                     <td class="text-center">{{ $totalOrders }}</td>
-                    <td  class="text-end">
+                    <td class="text-end">
                         Payed amount
                     </td>
                     <td class="text-center">{{ number_format($total_payedamt, 2) }}</td>

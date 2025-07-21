@@ -203,7 +203,9 @@
                                         {{-- <option selected="" disabled="">Select a payment:</option> --}}
                                         <option selected value="Cash">Cash</option>
                                         <option value="Bank">Bank Transfer</option>
-                                        <option value="Credit">Credit</option>
+                                        @if (auth()->user()->role === 'superAdmin' || auth()->user()->role === 'admin') 
+                                            <option value="Credit">Credit</option> 
+                                        @endif 
                                     </select>
 
                                     @error('payment_type')
