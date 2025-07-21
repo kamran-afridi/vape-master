@@ -152,31 +152,33 @@
                     Pay To
                 </td>
                 <td class="text-center" colspan="1">
-                    <form wire:submit.prevent="savepayto('{{ $order->uuid }}')">
-                        {{-- <form action="{{ route('orders.update_order_payment', $order->uuid) }}" method="POST"> --}}
-                        @csrf
-                        <div class="input-group" style="min-width: 170px;">
-                            <input type="text" class="form-control" name="payto" wire:model='payto' required
-                                step="any">
-                            <input type="hidden" class="form-control" name="paytoorder_id" wire:model='orderID'
-                                value="{{ $order->id }}">
 
-                            <div class="input-group-append text-center">
-                                <button type="submit" class="btn btn-icon btn-success border-none"
-                                    data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Sumbit">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check"
-                                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                        stroke="currentColor" fill="none" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M5 12l5 5l10 -10" />
-                                    </svg>
-                                </button>
+                    @if (auth()->user()->role === 'superAdmin' || auth()->user()->role === 'admin')
+                        <form wire:submit.prevent="savepayto('{{ $order->uuid }}')">
+                            {{-- <form action="{{ route('orders.update_order_payment', $order->uuid) }}" method="POST"> --}}
+                            @csrf
+                            <div class="input-group" style="min-width: 170px;">
+                                <input type="text" class="form-control" name="payto" wire:model='payto'
+                                    required step="any">
+                                <input type="hidden" class="form-control" name="paytoorder_id" wire:model='orderID'
+                                    value="{{ $order->id }}">
+
+                                <div class="input-group-append text-center">
+                                    <button type="submit" class="btn btn-icon btn-success border-none"
+                                        data-toggle="tooltip" data-placement="top" title=""
+                                        data-original-title="Sumbit">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-check" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M5 12l5 5l10 -10" />
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-
+                        </form>
+                    @endif
                 </td>
                 <td class="text-end">
                     Payed amount
