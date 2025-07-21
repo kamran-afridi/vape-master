@@ -41,46 +41,90 @@
                         {{ number_format($item->unitcost, 2) }}
                     </td> --}}
                     <td style="min-width: 170px;">
-                        <form wire:submit.prevent="submitData({{ $item->id }})">
-                            <input type="hidden" class="form-control" wire:model="OrderId.{{ $item->id }}"
-                                placeholder="Order Id" readonly>
-                            <div class="row p-1">
-                                <div class="col-md-5 col-sm-12">
-                                    <div class="input-group m-1">
-                                        @error('productquantity')
-                                            <span class="text-danger"
-                                                style="font-size: 12px; margin-left: 5px;">*{{ $message }}</span>
-                                        @enderror
-                                        <input type="text" class="form-control"
-                                            wire:model="productquantity.{{ $item->id }}" required
-                                            placeholder="Quantity" value="{{ $productquantity[$item->id] ?? '' }}">
-                                    </div>
-                                </div>
-                                <div class="col-md-5 col-sm-12">
-                                    <div class="input-group m-1">
-                                        @error('productprice')
-                                            <span class="text-danger"
-                                                style="font-size: 12px; margin-left: 5px;">*{{ $message }}</span>
-                                        @enderror
-                                        <input type="text" class="form-control"
-                                            wire:model="productprice.{{ $item->id }}" placeholder="Price"
-                                            value="{{ number_format($item->unitcost, 2) }}">
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-12">
-                                    <button type="submit" class="btn btn-primary btn-icon m-1 w-100">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-check" width="24" height="24"
-                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                            <path d="M5 12l5 5l10 -10" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
 
-                        </form>
+                        @if (auth()->user()->role == 'admin' || auth()->user()->role == 'superAdmin')
+                            <form wire:submit.prevent="submitData({{ $item->id }})">
+                                <input type="hidden" class="form-control" wire:model="OrderId.{{ $item->id }}"
+                                    placeholder="Order Id" readonly>
+                                <div class="row p-1">
+                                    <div class="col-md-5 col-sm-12">
+                                        <div class="input-group m-1">
+                                            @error('productquantity')
+                                                <span class="text-danger"
+                                                    style="font-size: 12px; margin-left: 5px;">*{{ $message }}</span>
+                                            @enderror
+                                            <input type="text" class="form-control"
+                                                wire:model="productquantity.{{ $item->id }}" required
+                                                placeholder="Quantity" value="{{ $productquantity[$item->id] ?? '' }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 col-sm-12">
+                                        <div class="input-group m-1">
+                                            @error('productprice')
+                                                <span class="text-danger"
+                                                    style="font-size: 12px; margin-left: 5px;">*{{ $message }}</span>
+                                            @enderror
+                                            <input type="text" class="form-control"
+                                                wire:model="productprice.{{ $item->id }}" placeholder="Price"
+                                                value="{{ number_format($item->unitcost, 2) }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-12">
+                                        <button type="submit" class="btn btn-primary btn-icon m-1 w-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="icon icon-tabler icon-tabler-check" width="24" height="24"
+                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M5 12l5 5l10 -10" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        @else
+                            <form wire:submit.prevent="submitData({{ $item->id }})">
+                                <input type="hidden" class="form-control" wire:model="OrderId.{{ $item->id }}"
+                                    placeholder="Order Id" readonly>
+                                <div class="row p-1">
+                                    <div class="col-md-5 col-sm-12">
+                                        <div class="input-group m-1">
+                                            @error('productquantity')
+                                                <span class="text-danger"
+                                                    style="font-size: 12px; margin-left: 5px;">*{{ $message }}</span>
+                                            @enderror
+                                            <input type="text" class="form-control"
+                                                wire:model="productquantity.{{ $item->id }}" required
+                                                placeholder="Quantity" value="{{ $productquantity[$item->id] ?? '' }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 col-sm-12">
+                                        <div class="input-group m-1">
+                                            @error('productprice')
+                                                <span class="text-danger"
+                                                    style="font-size: 12px; margin-left: 5px;">*{{ $message }}</span>
+                                            @enderror
+                                            <input type="text" class="form-control"
+                                                wire:model="productprice.{{ $item->id }}" placeholder="Price"
+                                                value="{{ number_format($item->unitcost, 2) }}" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-12">
+                                        <button type="submit" class="btn btn-primary btn-icon m-1 w-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="icon icon-tabler icon-tabler-check" width="24" height="24"
+                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M5 12l5 5l10 -10" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        @endif
 
                     </td>
                     <td class="align-middle text-center">
@@ -102,8 +146,8 @@
                                         onclick="return confirm('Are you sure you want to delete this record?')">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             class="icon icon-tabler icon-tabler-trash" width="24" height="24"
-                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                            stroke-linecap="round" stroke-linejoin="round">
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                             <path d="M4 7l16 0" />
                                             <path d="M10 11l0 6" />
