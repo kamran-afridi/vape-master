@@ -35,7 +35,7 @@
                                 <div class="col-lg-6 col-sm-6">
                                     <div class="invoice">
                                         <h1>
-                                            Delivery note # <span>{{ $order->invoice_no }}</span>
+                                            Delivery note # <span>123312</span>
                                         </h1>
                                         <div class="invoice_details">
                                             <div class="invoice-number d-flex justify-content-end">
@@ -43,7 +43,7 @@
                                                     Invoice date:&nbsp;
                                                 </h4>
                                                 <p class="invo-addr-1">
-                                                    {{ $order->order_date }}
+                                                   {{ Carbon\Carbon::now()->format('M d, Y') }}
                                                 </p>
                                             </div>
                                             <div class="invoice-number d-flex justify-content-end">
