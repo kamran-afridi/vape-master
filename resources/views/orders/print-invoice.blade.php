@@ -66,7 +66,7 @@
                                                     Bank Title:&nbsp;
                                                 </h4>
                                                 <p class="invo-addr-1">
-                                                    PANTHER FORCE RETAIL LIMITED
+                                                    T&S BUSINESS SOLUTIONS LTD
                                                 </p>
                                             </div>
                                             <div class="invoice-number d-flex justify-content-end">
@@ -80,7 +80,7 @@
                                                     Account No:&nbsp;
                                                 </h4>
                                                 <p class="invo-addr-1">
-                                                    50539663
+                                                    83581860
                                                 </p>
                                             </div>
                                             {{-- <div class="invoice-number d-flex mt-0">
