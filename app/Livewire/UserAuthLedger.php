@@ -166,11 +166,16 @@ class UserAuthLedger extends Component
             ->paginate($this->perPage);
 
         $users = User::get(['id', 'name'])->where('id', auth()->user()->id);
-        $customers = Customer::get(['id', 'name']);
+        
+        @if (auth()->user()->role === 'admin' || auth()->user()->role === 'superAdmin') {  
+        $customers = Customer::get(['id', 'name']); 
+        } else {
+            $customers = Customer::where('user_id', auth()->user()->id)->get(['id', 'name']);
+        }
         // ->where ('user_id', auth()->user()->id);
 
         $this->totalOrders = $orders->total();
-        dd("ad")
+
         return view('livewire.user-auth-ledger', [
             'orders' => $orders,
             'users' => $users,
