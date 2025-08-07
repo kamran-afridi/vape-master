@@ -82,7 +82,7 @@
                         <div class="col">
                             <label for="payment_type" class="form-label required">
                                 {{ __('Payment Type') }}
-                            </label> 
+                            </label>  
                             @if(auth()->user()->role == 'admin' || auth()->user()->role == 'superAdmin')
                                 <select class="form-control" id="notesSelect" name="notesSelect">
                                     <option value="Pending" {{ $order->notes === 'Pending' ? 'selected' : '' }}>
