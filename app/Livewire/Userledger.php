@@ -123,7 +123,7 @@ class Userledger extends Component
             $users = User::get(['id', 'name']);
         }
         $customers = Customer::get(['id', 'name']);
-dd($ordersQuery);
+
         return view('livewire.userledger', [
             'orders' => $orders,
             'users' => $users,

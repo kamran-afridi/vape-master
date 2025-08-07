@@ -170,7 +170,7 @@ class UserAuthLedger extends Component
         // ->where ('user_id', auth()->user()->id);
 
         $this->totalOrders = $orders->total();
-
+        dd("ad")
         return view('livewire.user-auth-ledger', [
             'orders' => $orders,
             'users' => $users,
