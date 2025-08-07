@@ -82,16 +82,20 @@
                         <div class="col">
                             <label for="payment_type" class="form-label required">
                                 {{ __('Payment Type') }}
-                            </label>
-                            <select class="form-control" id="payment_type" name="payment_type" required>
-                                <option value="Cash" {{ $order->payment_type === 'Cash' ? 'selected' : '' }}>
-                                    Cash</option>
-                                <option value="Bank" {{ $order->payment_type === 'Bank' ? 'selected' : '' }}>Bank
-                                    Transfer
-                                </option>
-                                <option value="Credit" {{ $order->payment_type === 'Credit' ? 'selected' : '' }}>Credit
-                                </option>
-                            </select>
+                            </label> 
+                            @if(auth()->user()->role == 'admin' || auth()->user()->role == 'superAdmin')
+                                <select class="form-control" id="notesSelect" name="notesSelect">
+                                    <option value="Pending" {{ $order->notes === 'Pending' ? 'selected' : '' }}>
+                                        Pending</option>
+                                    <option value="Completed" {{ $order->notes === 'Completed' ? 'selected' : '' }}>
+                                        Completed</option>
+                                    <option value="Cancelled" {{ $order->notes === 'Cancelled' ? 'selected' : '' }}>
+                                        Cancelled</option>
+                                </select>
+                            @else
+                                <input type="text" id="payment_type" class="form-control"
+                                    value="{{ $order->payment_type }}" disabled>    
+                            @endif 
                         </div>
                         <div class="col">
                             <label for="addproduct" class="form-label">
