@@ -167,7 +167,7 @@ class UserAuthLedger extends Component
 
         $users = User::get(['id', 'name'])->where('id', auth()->user()->id);
         
-        @if (auth()->user()->role === 'admin' || auth()->user()->role === 'superAdmin') {  
+        if (auth()->user()->role === 'admin' || auth()->user()->role === 'superAdmin') {  
         $customers = Customer::get(['id', 'name']); 
         } else {
             $customers = Customer::where('user_id', auth()->user()->id)->get(['id', 'name']);
