@@ -273,6 +273,7 @@
                     </x-status>
                 </td>
             </tr>
+            @if (auth()->user()->role == 'admin' || auth()->user()->role == 'superAdmin')
             <tr>
                 <td class="text-end">Note:</td>
                 <td colspan="7" class="text-center">
@@ -280,6 +281,7 @@
                         spellcheck="false">{{ old('note', $order->note) }}</textarea>
                 </td>
             </tr>
+            @endif
         </tbody>
     </table>
 </div>
