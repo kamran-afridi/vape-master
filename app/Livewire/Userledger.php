@@ -71,6 +71,7 @@ class Userledger extends Component
             // Filter by user ID if provided
             if ($this->userid) {
                 $ordersQuery->where('user_id', $this->userid);
+
             }
             if ($this->paymentStatus) {
                 if ($this->paymentStatus == 'allstatus') {
@@ -99,6 +100,7 @@ class Userledger extends Component
         } else {
             // For regular users, filter only by their user ID
             $ordersQuery->where('user_id', auth()->id())->whereNot('order_status', '2');
+
         }
 
         // Apply search, sorting, and pagination
@@ -113,19 +115,15 @@ class Userledger extends Component
         // $users = User::get(['id', 'name']);
         if (auth()->user()->role == 'admin' || auth()->user()->role == 'supplier') {
             $users = User::where('wearhouse_id', auth()->user()->wearhouse_id)->get(['id', 'name']);
-        } elseif (auth()->user()->role == 'superAdmin') {
-            $users = User::get(['id', 'name']);
-        } else {
+        }
+        elseif(auth()->user()->role == 'superAdmin') {
             $users = User::get(['id', 'name']);
         }
-        // $customers = Customer::get(['id', 'name']);
-        // For admin or supplier roles, show all customers
-        if (auth()->user()->role == 'admin' || auth()->user()->role == 'supplier') {
-            $customers = Customer::get(['id', 'name']);
-        } else { // For regular users, filter only by their customer ID
-            // $customers = Customer::where('id', auth()->user()->customer_id)->get
-            $customers = Customer::where('id', auth()->user()->customer_id)->get(['id', 'name']);
+        else{
+            $users = User::get(['id', 'name']);
         }
+        $customers = Customer::get(['id', 'name']);
+
         return view('livewire.userledger', [
             'orders' => $orders,
             'users' => $users,
