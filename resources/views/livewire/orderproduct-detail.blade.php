@@ -73,6 +73,8 @@
                                     @endif
                                 </div>
                             </div>
+
+                            @if (auth()->user()->role == 'admin' || auth()->user()->role == 'superAdmin')
                             <div class="col-md-2 col-sm-12">
                                 <button type="submit" class="btn btn-primary btn-icon m-1 w-100">
                                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -83,6 +85,7 @@
                                         <path d="M5 12l5 5l10 -10" />
                                     </svg>
                                 </button>
+                                @endif
                             </div>
                         </div>
 
