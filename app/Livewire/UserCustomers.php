@@ -54,7 +54,7 @@ class UserCustomers extends Component
             ->search($this->search)
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage);
-dd($customers);
+x
             return view('livewire.user-customers', [
                 'customers' => $customers,
                 'userName' => $this->userName,
