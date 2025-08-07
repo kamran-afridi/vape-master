@@ -285,7 +285,7 @@
                         route="{{ route('order.downloadAdminInvoice', $order->uuid) }}" />
                     @endif
 
-                    @if (auth()->user()->role === 'superAdmin' || auth()->user()->role === 'admin' || auth()->user()->role === 'supplier')
+                    @if (auth()->user()->role === 'superAdmin' || auth()->user()->role === 'admin')
                     @if ($order->order_status === \App\Enums\OrderStatus::PENDING)
                     <x-button.delete class="btn-icon" route="{{ route('orders.cancel', $order) }}"
                         onclick="return confirm('Are you sure to cancel invoice no. {{ $order->invoice_no }} ?')" />
