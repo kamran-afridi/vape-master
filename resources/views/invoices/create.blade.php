@@ -59,7 +59,7 @@
                                                     Bank Title:&nbsp;
                                                 </h4>
                                                 <p class="invo-addr-1">
-                                                    T&S BUSINESS SOLUTIONS LTD
+                                                    MORRIS HYPE MART LTD
                                                 </p>
                                             </div>
                                             <div class="invoice-number d-flex justify-content-end">
