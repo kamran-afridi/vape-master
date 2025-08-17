@@ -83,14 +83,17 @@ $(function () {
         const imgData = canvas.toDataURL("image/jpeg", 1.0);
 
         const pdf = new jsPDF("p", "pt", "a4");
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = pdf.internal.pageSize.getHeight();
 
-        // Dimensions of the rendered canvas
+        // Support both old and new versions of jsPDF
+        const pdfWidth = pdf.internal.pageSize.getWidth
+            ? pdf.internal.pageSize.getWidth()
+            : pdf.internal.pageSize.width;
+        const pdfHeight = pdf.internal.pageSize.getHeight
+            ? pdf.internal.pageSize.getHeight()
+            : pdf.internal.pageSize.height;
+
         const imgWidth = canvas.width;
         const imgHeight = canvas.height;
-
-        // Scale ratio to fit width
         const ratio = pdfWidth / imgWidth;
         const scaledHeight = imgHeight * ratio;
 
@@ -101,7 +104,7 @@ $(function () {
         pdf.addImage(imgData, "JPEG", 0, position, pdfWidth, scaledHeight);
         heightLeft -= pdfHeight;
 
-        // Extra pages (if needed)
+        // Extra pages if needed
         while (heightLeft > 0) {
             position = heightLeft - scaledHeight;
             pdf.addPage();
@@ -109,8 +112,9 @@ $(function () {
             heightLeft -= pdfHeight;
         }
 
-        pdf.save(`Invoice-${dateNow}.pdf`);
+        pdf.save(`invoice-${dateNow}.pdf`);
     });
 });
+
 
 });
