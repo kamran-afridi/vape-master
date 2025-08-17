@@ -109,7 +109,7 @@ $(function () {
             heightLeft -= pdfHeight;
         }
 
-        pdf.save(`invoice-${dateNow}.pdf`);
+        pdf.save(`Invoice-${dateNow}.pdf`);
     });
 });
 
