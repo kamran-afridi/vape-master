@@ -128,7 +128,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="order-summary">
+                       <div class="order-summary">
                             <div class="table-outer">
                                 <table class="default-table invoice-table">
                                     <thead>
@@ -156,13 +156,17 @@
                                                     {{ $item->product->name }}
                                                 </td>
                                                 <td class="align-middle text-center">
-                                                    {{ Number::currency($item->unitcost, 'GBP') }}
+                                                    {{ Number::currency($item->product->cost_price, 'GBP') }}
                                                 </td>
                                                 <td class="align-middle text-center">
                                                     {{ $item->quantity }}
                                                 </td>
                                                 <td class="align-middle text-center">
-                                                    {{ Number::currency($item->total, 'GBP') }}
+                                                    @php
+                                                        $sub_total = $item->quantity * $item->product->cost_price;
+                                                        $total_price += $sub_total;
+                                                    @endphp
+                                                    {{ Number::currency($sub_total, 'GBP') }}
                                                 </td>
                                             </tr>
                                             @php
@@ -171,11 +175,22 @@
                                                 // $totalitems++;
                                             @endphp
                                         @endforeach
+
                                         <tr>
                                             <td colspan="2" class="text-end"><strong>Total Items</strong></td>
                                             <td class="text-center">
                                                 <strong>{{ $totalitems }}</strong>
                                             </td>
+                                            {{-- <td  class="text-end">
+                                                <strong>
+                                                    Subtotal
+                                                </strong>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <strong>
+                                                    {{ Number::currency($order->sub_total, 'GBP') }}
+                                                </strong>
+                                            </td> --}}
                                             <td class="text-end">
                                                 <strong>Discount</strong>
                                             </td>
@@ -214,6 +229,7 @@
                                             </td>
                                         </tr>
                                         <tr>
+
                                             {{-- <td  class="text-end">
                                                 <strong>Tax</strong>
                                             </td>
@@ -227,11 +243,7 @@
                                             </td>
                                             <td class="align-middle text-center">
                                                 <strong>
-                                                    @if (isset($order->org_total) && $order->org_total > 0)
-                                                        {{ Number::currency($order->org_total, 'GBP') }}
-                                                    @else
-                                                        {{ Number::currency($thissubtotal, 'GBP') }}
-                                                    @endif
+                                                    {{ Number::currency($total_price, 'GBP') }}
                                                 </strong>
                                             </td>
                                         </tr>
@@ -244,8 +256,8 @@
                                                     {{ Number::currency($order->pay, 'GBP') }}
                                                 </strong>
                                             </td>
-                                        </tr>
-                                        <tr>
+                                        </tr> --}}
+                                        {{-- <tr>
                                             <td colspan="4" class="text-end">
                                                 <strong>Pending</strong>
                                             </td>
@@ -267,16 +279,6 @@
                                         </tr>
                                         <tr>
                                             <td colspan="4" class="text-end">
-                                                <strong>Profit</strong>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <strong>
-                                                    {{ Number::currency($order->total - $total_price, 'GBP') }}
-                                                </strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="4" class="text-end">
                                                 <strong>Pending</strong>
                                             </td>
                                             <td class="align-middle text-center">
@@ -287,11 +289,21 @@
                                         </tr>
                                         <tr>
                                             <td colspan="4" class="text-end">
+                                                <strong>Profit</strong>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <strong>
+                                                    {{ Number::currency($order->total - $total_price, 'GBP') }}
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4" class="text-end">
                                                 <strong>Total</strong>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <strong>
-                                                    {{ Number::currency($order->total, 'GBP') }}
+                                                    {{ Number::currency($total_price, 'GBP') }}
                                                 </strong>
                                             </td>
                                         </tr>
