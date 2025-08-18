@@ -267,6 +267,16 @@
                                         </tr>
                                         <tr>
                                             <td colspan="4" class="text-end">
+                                                <strong>Profit</strong>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <strong>
+                                                    {{ Number::currency($order->total - $total_price, 'GBP') }}
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4" class="text-end">
                                                 <strong>Pending</strong>
                                             </td>
                                             <td class="align-middle text-center">
