@@ -96,7 +96,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="invoice-info">
+                         <div class="invoice-info">
                             {{-- <div class="row">
                                 <div class="col-sm-6 mb-50">
                                     <div class="invoice-number">
@@ -118,6 +118,7 @@
                                 </div>
                                 @php
                                     $user = auth()->user();
+                                    $total_price = 0;
                                 @endphp
                                 <div class="col-sm-6 text-end mb-30">
                                     <h4 class="inv-title-1">Store</h4>
@@ -128,7 +129,7 @@
                                 </div>
                             </div>
                         </div>
-                       <div class="order-summary">
+                        <div class="order-summary">
                             <div class="table-outer">
                                 <table class="default-table invoice-table">
                                     <thead>
