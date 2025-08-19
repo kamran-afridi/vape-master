@@ -287,7 +287,7 @@
                                         {{ Number::currency($order->total - $order->pay, 'GBP') }}
                                     </strong>
                                 </td>
-                            </tr> 
+                            </tr>
                             <tr>
                                 <td colspan="4" class="text-end">
                                     <strong>Total</strong>
