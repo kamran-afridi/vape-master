@@ -40,7 +40,7 @@
                                                 style="width: 150px; height:100px" alt="Panther Force">
                                         @else
                                             <img src="{{ asset('assets/img/vapelogo.png') }}"
-                                                style="width: 125px; height:125px" alt="Vape Master">
+                                                style="width: 200px; height:100px" alt="Vape Master">
                                         @endif
                                     </div>
                                 </div>
