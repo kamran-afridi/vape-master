@@ -39,7 +39,7 @@
                                             <img src="https://ven-dens.co.uk/wp-content/uploads/2021/08/logo-white-bg.png"
                                                 style="width: 150px; height:100px" alt="Panther Force">
                                         @else
-                                            <img src="{{ asset('assets/img/vapelogo.PNG') }}"
+                                            <img src="{{ asset('assets/img/vapelogo.png') }}"
                                                 style="width: 125px; height:125px" alt="Vape Master">
                                         @endif
                                     </div>
