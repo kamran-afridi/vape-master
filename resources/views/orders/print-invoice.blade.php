@@ -287,17 +287,7 @@
                                         {{ Number::currency($order->total - $order->pay, 'GBP') }}
                                     </strong>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4" class="text-end">
-                                    <strong>Profit</strong>
-                                </td>
-                                <td class="align-middle text-center">
-                                    <strong>
-                                        {{ Number::currency($order->total - $total_price, 'GBP') }}
-                                    </strong>
-                                </td>
-                            </tr>
+                            </tr> 
                             <tr>
                                 <td colspan="4" class="text-end">
                                     <strong>Total</strong>
